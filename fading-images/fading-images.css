@@ -1,0 +1,83 @@
+body {
+  background-color: #404040;
+  text-align: center;
+  color: #fff;
+}
+html {
+  /* scroll-snap-type: y mandatory; */
+}
+img {
+  /* width: 100%; */
+}
+section {
+  /* height: 100vh; */
+  /* scroll-snap-align: start; */
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-stop, https://www.youtube.com/watch?v=ytl6TrroGis */
+  /* scroll-snap-stop: always; */
+}
+.section1 {
+  height: 100vh;
+}
+.section1 img {
+  grid-column: 1 / -1;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  /* aspect-ratio: 9 / 5; */
+  /* width: 70%; */
+  /* margin: 0 auto; */
+  height: 100%;
+  opacity: .5;
+  object-fit: cover;
+  z-index: -1;
+  animation: hero-image-animation linear forwards;
+  animation-timeline: view();
+  animation-range: exit;
+}
+.section1 .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2em;
+  opacity: 0.8;
+  animation: fade-out linear;
+  animation-timeline: view();
+  animation-range: exit;
+}
+
+.other-section img {
+    width: 100%;
+  animation: fade-in linear;
+  animation-timeline: view();
+  animation-range: entry;
+  /* z-index: -1; */
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    scale: .2;
+    opacity: 0;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+@keyframes hero-image-animation {
+  25% {
+    opacity: 1;
+  }
+  85%,
+  100% {
+    opacity: 0;
+    scale: 3;
+  }
+}

@@ -1,0 +1,5 @@
+@for $i from 1 through 15 {
+  .dot:nth-child(#{$i}) {
+    animation-delay: 100ms * $i;
+  }
+}
